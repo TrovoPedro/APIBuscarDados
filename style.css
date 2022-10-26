@@ -1,0 +1,141 @@
+.table {
+    border: 1px solid black;
+}
+
+body {
+    background-image: linear-gradient(to right, rgb(183, 145, 219), rgb(180, 58, 211), rgb(204, 72, 236), rgb(168, 16, 238));
+}
+
+tr,
+td {
+    border: 1px solid black;
+    padding: 5px;
+    color: aliceblue;
+}
+
+main {
+    width: 750px;
+    height: 100%;
+    border: 5px solid black;
+    align-items: center;
+    margin-left: 300px;
+    margin-top: 150px;
+    border-radius: 10px;
+    box-shadow: 10px 50px 50px rgb(17, 17, 17);
+}
+
+#cep {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.cep {
+    margin-left: 195px;
+    color: aliceblue;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');
+:root {
+    --text-color: hsla(210, 50%, 85%, 1);
+    --shadow-color: hsla(210, 40%, 52%, .4);
+    --btn-color: hsl(288, 79%, 71%);
+    --bg-color: #141218;
+}
+
+#btn {
+    margin-left: 270px;
+    position: relative;
+    padding: 2px 2px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: "Source Code Pro";
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: var(--text-color);
+    background-color: var(--btn-color);
+    box-shadow: var(--shadow-color) 2px 2px 22px;
+    border-radius: 4px;
+    z-index: 0;
+    overflow: hidden;
+}
+
+#btn:focus {
+    outline-color: transparent;
+    box-shadow: var(--btn-color) 2px 2px 22px;
+}
+
+.right::after {
+    content: var(--content);
+    display: block;
+    position: absolute;
+    white-space: nowrap;
+    padding: 40px 40px;
+    pointer-events: none;
+}
+
+#btn::after {
+    font-weight: 200;
+    top: -30px;
+    left: -20px;
+}
+
+.right,
+.left {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.right {
+    left: 66%;
+}
+
+.left {
+    right: 66%;
+}
+
+.right::after {
+    top: -30px;
+    left: calc(-66% - 20px);
+    background-color: var(--bg-color);
+    color: transparent;
+    transition: transform .4s ease-out;
+    transform: translate(0, -90%) rotate(0deg)
+}
+
+#btn:hover .right::after {
+    transform: translate(0, -47%) rotate(0deg)
+}
+
+#btn .right:hover::after {
+    transform: translate(0, -50%) rotate(-7deg)
+}
+
+#btn .left:hover~.right::after {
+    transform: translate(0, -50%) rotate(7deg)
+}
+
+#btn::before {
+    content: '';
+    pointer-events: none;
+    opacity: .6;
+    background: radial-gradient(circle at 20% 35%, transparent 0, transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px), radial-gradient(circle at 75% 44%, transparent 0, transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px), radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    animation: bubbles 5s linear infinite both;
+}
+
+@keyframes bubbles {
+    from {
+        transform: translate();
+    }
+    to {
+        transform: translate(0, -66.666%);
+    }
+}
